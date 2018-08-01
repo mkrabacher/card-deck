@@ -2,7 +2,7 @@ const prompt = require('prompt');
 
 prompt.start();
 
-// create swap method for arrays. this will be utilized in our deck object's sort method.
+// create swap method for arrays. this will be utilized in our deck object's shuffle method.
 Array.prototype.swap = function (one, two) {
     const temp = this[one];
     this[one] = this[two];
@@ -17,9 +17,7 @@ let deck = {
     shuffle: function () {
         for (let i = 0; i < this.cards.length; i++) {
             const pos = Math.floor(Math.random() * this.cards.length);
-            let temp = this.cards[i];
-            this.cards[i] = this.cards[pos];
-            this.cards[pos] = temp;
+            this.cards.swap(pos, i);
         }
         return this.cards;
     },
