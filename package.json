@@ -1,0 +1,25 @@
+{
+  "name": "card_deck",
+  "version": "1.0.0",
+  "description": "A deck of cards built in JS",
+  "main": "deck.js",
+  "dependencies": {
+    "prompt": "^1.0.0"
+  },
+  "devDependencies": {
+    "jasmine": "^3.1.0"
+  },
+  "scripts": {
+    "test": "jasmine"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mkrabacher/card-deck.git"
+  },
+  "author": "Matt",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mkrabacher/card-deck/issues"
+  },
+  "homepage": "https://github.com/mkrabacher/card-deck#readme"
+}
