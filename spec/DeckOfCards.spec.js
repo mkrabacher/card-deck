@@ -1,24 +1,107 @@
-describe('Deck of cards', function() {
-    require('../DeckOfCards.js');
+describe('Deck of cards', function () {
+    var DeckOfCards = require('../DeckOfCards.js');
+    var deck;
     
-    describe("Array swap method", function () {
-        
-        it("should exist", function () {
-            const arr = [1,2];
-            
-            expect(arr.swap(0,1)).toBeTruthy();
-        });
-        
-        it("should swap two elements in an array.", function () {
-            const arr = [1,2,3];
-            
-            expect(arr.swap(0,1)).toEqual([2,1,3]);
-        });
-        
-        it("should return error when numbers outside range are given.", function () {
-            const arr = [1,2,3];
-            
-            expect(function() {arr.swap(0,4)}).toThrow(new Error('error: one of the indices is out of range.'));
-        });
+    beforeEach(function() {
+        DOC = new DeckOfCards();
+    })
+
+    describe("initailization", function() {
+
+        xit("should have a deck obj", function() {
+            expect(typeof DOC.deck).toBe('object');
+        })
+
     });
+
+    describe("deckloop function", function () {
+
+        describe("called with 'd'", function () {
+
+            beforeEach(function () {
+                spyOn(DOC, 'makeChoice');
+                // spyOn(DOC.deck, 'show');                // can't figure out how to access the Deck object within the DeckOfCards
+                DOC.deckLoop('d');
+            })
+
+            xit("should have called the deck's show method ", function () {
+                expect(DOC.deck.show).toHaveBeenCalled();   // can't figure out how to access the Deck object within the DeckOfCards
+            })
+
+            it("should have called makeChoice() ", function () {
+                expect(DOC.makeChoice).toHaveBeenCalled();
+            })
+        })
+
+        describe("called with 's'", function () {
+
+            beforeEach(function () {
+                spyOn(DOC, 'makeChoice');
+                // spyOn(DOC.deck, 'shuffle');                // can't figure out how to access the Deck object within the DeckOfCards
+                // spyOn(DOC.deck, 'show');                // can't figure out how to access the Deck object within the DeckOfCards
+                DOC.deckLoop('s');
+            })
+
+            xit("should have called the deck's shuffle method ", function () {
+                expect(DOC.deck.shuffle).toHaveBeenCalled();
+            })
+
+            xit("should have called the deck's show method ", function () {
+                expect(DOC.deck.show).toHaveBeenCalled();
+            })
+
+            it("should have called makeChoice() ", function () {
+                expect(DOC.makeChoice).toHaveBeenCalled();
+            })
+        })
+
+        describe("called with 'so'", function () {
+
+            beforeEach(function () {
+                spyOn(DOC, 'makeChoice');
+                // spyOn(DOC.deck, 'sort');                // can't figure out how to access the Deck object within the DeckOfCards
+                // spyOn(DOC.deck, 'show');                // can't figure out how to access the Deck object within the DeckOfCards
+                DOC.deckLoop('d');
+            })
+
+            xit("should have called the deck's sort method ", function () {
+                expect(DOC.deck.sort).toHaveBeenCalled();
+            })
+
+            xit("should have called the deck's show method ", function () {
+                expect(DOC.deck.show).toHaveBeenCalled();
+            })
+
+            it("should have called makeChoice() ", function () {
+                expect(DOC.makeChoice).toHaveBeenCalled();
+            })
+        })
+
+        describe("called with wrong command", function() {
+            
+            it("should log the console twice", function() {
+                console.log = jasmine.createSpy("log");
+                DOC.deckLoop('asdf');
+                expect(console.log).toHaveBeenCalledTimes(2);
+            })
+            
+            it("should recall the deckloop program", function() {
+                spyOn(DOC, 'deckLoop');
+                DOC.deckLoop('asdf');
+                expect(DOC.deckLoop).toHaveBeenCalled();
+            })
+        })
+    });
+
+    describe("makeChoice function", function () {
+
+        beforeEach(function() {
+            console.log = jasmine.createSpy('log');
+            DOC.makeChoice()
+        })
+        
+        it("should have logged six times", function() {
+            expect(console.log).toHaveBeenCalledTimes(6);
+        })
+    })
 });

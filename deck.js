@@ -16,6 +16,14 @@ function Deck() {
     }
 };
 
+//  displays all cards in deck
+Deck.prototype.show = function () {
+    cards.forEach(function(card) {
+        console.log(`${card.name} of ${card.suit}`)
+    });
+    console.log('');
+};
+
 Deck.prototype.shuffle = function () {
     for (let i = 0; i < cards.length; i++) {
         const pos = Math.floor(Math.random() * cards.length);
@@ -47,14 +55,6 @@ Deck.prototype.sort = function () {
     const reducer = (deck, suit) => deck.concat(suit);
     cards = suits.reduce(reducer);
     return cards;
-};
-
-//  displays all cards in deck
-Deck.prototype.show = function () {
-    cards.forEach(function(card) {
-        console.log(`${card.name} of ${card.suit}`)
-    });
-    console.log('');
 };
 
 // helper function to select card name
