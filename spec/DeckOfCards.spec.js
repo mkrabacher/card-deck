@@ -104,4 +104,16 @@ describe('Deck of cards', function () {
             expect(console.log).toHaveBeenCalledTimes(6);
         })
     })
+
+    describe("startLoop function", function () {
+
+        beforeEach(function() {
+            spyOn(DOC, 'makeChoice');
+            DOC.startLoop()
+        })
+        
+        it("should have logged six times", function() {
+            expect(DOC.makeChoice).toHaveBeenCalled();
+        })
+    })
 });
