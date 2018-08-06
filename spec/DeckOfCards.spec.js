@@ -8,7 +8,7 @@ describe('Deck of cards', function () {
 
     describe("initailization", function() {
 
-        xit("should have a deck obj", function() {
+        it("should have a deck obj", function() {
             expect(typeof DOC.deck).toBe('object');
         })
 
@@ -20,11 +20,11 @@ describe('Deck of cards', function () {
 
             beforeEach(function () {
                 spyOn(DOC, 'makeChoice');
-                // spyOn(DOC.deck, 'show');                // can't figure out how to access the Deck object within the DeckOfCards
+                spyOn(DOC.deck, 'show');                // can't figure out how to access the Deck object within the DeckOfCards
                 DOC.deckLoop('d');
             })
 
-            xit("should have called the deck's show method ", function () {
+            it("should have called the deck's show method ", function () {
                 expect(DOC.deck.show).toHaveBeenCalled();   // can't figure out how to access the Deck object within the DeckOfCards
             })
 
@@ -37,16 +37,16 @@ describe('Deck of cards', function () {
 
             beforeEach(function () {
                 spyOn(DOC, 'makeChoice');
-                // spyOn(DOC.deck, 'shuffle');                // can't figure out how to access the Deck object within the DeckOfCards
-                // spyOn(DOC.deck, 'show');                // can't figure out how to access the Deck object within the DeckOfCards
+                spyOn(DOC.deck, 'shuffle');                // can't figure out how to access the Deck object within the DeckOfCards
+                spyOn(DOC.deck, 'show');                // can't figure out how to access the Deck object within the DeckOfCards
                 DOC.deckLoop('s');
             })
 
-            xit("should have called the deck's shuffle method ", function () {
+            it("should have called the deck's shuffle method ", function () {
                 expect(DOC.deck.shuffle).toHaveBeenCalled();
             })
 
-            xit("should have called the deck's show method ", function () {
+            it("should have called the deck's show method ", function () {
                 expect(DOC.deck.show).toHaveBeenCalled();
             })
 
@@ -59,16 +59,16 @@ describe('Deck of cards', function () {
 
             beforeEach(function () {
                 spyOn(DOC, 'makeChoice');
-                // spyOn(DOC.deck, 'sort');                // can't figure out how to access the Deck object within the DeckOfCards
-                // spyOn(DOC.deck, 'show');                // can't figure out how to access the Deck object within the DeckOfCards
-                DOC.deckLoop('d');
+                spyOn(DOC.deck, 'sort');                // can't figure out how to access the Deck object within the DeckOfCards
+                spyOn(DOC.deck, 'show');                // can't figure out how to access the Deck object within the DeckOfCards
+                DOC.deckLoop('so');
             })
 
-            xit("should have called the deck's sort method ", function () {
+            it("should have called the deck's sort method ", function () {
                 expect(DOC.deck.sort).toHaveBeenCalled();
             })
 
-            xit("should have called the deck's show method ", function () {
+            it("should have called the deck's show method ", function () {
                 expect(DOC.deck.show).toHaveBeenCalled();
             })
 
